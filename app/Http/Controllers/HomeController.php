@@ -1,16 +1,20 @@
 <?php
-
 namespace App\Http\Controllers;
+
+use App\Models\Service;
 
 class HomeController extends controller
 {
 public function index()
 
 {
-$about="about";
-$contact="contact";
-return view("index",compact(
-    "about","contact"));
+    $services = Service::all();
+    return view('master', compact('services'));
+}
 
+    public function contact()
+    {
+        return view('contact');
     }
+    
 }
